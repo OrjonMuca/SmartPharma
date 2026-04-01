@@ -3,37 +3,6 @@
 > A complete specification of all system use cases for the SmartPharma platform, organized by actor role.
 
 ---
-
-## 📑 Table of Contents
-
-- [👤 Administrator Use Cases](#-administrator-use-cases)
-  - [UC01 — Manage User Accounts](#uc01--manage-user-accounts)
-  - [UC02 — Manage User Roles](#uc02--manage-user-roles)
-  - [UC03 — Manage Pharmacist Accounts](#uc03--manage-pharmacist-accounts)
-  - [UC04 — Monitor Platform Activity](#uc04--monitor-platform-activity)
-  - [UC05 — Oversee Medicine Listings](#uc05--oversee-medicine-listings)
-  - [UC06 — Maintain Access Control](#uc06--maintain-access-control)
-  - [UC07 — Manage System Data](#uc07--manage-system-data)
-- [💊 Pharmacist Use Cases](#-pharmacist-use-cases)
-  - [UC08 — Login / Authenticate (Pharmacist)](#uc08--login--authenticate-pharmacist)
-  - [UC09 — Add Medicine to Catalog](#uc09--add-medicine-to-catalog)
-  - [UC10 — Update Medicine Information](#uc10--update-medicine-information)
-  - [UC11 — Manage Product Availability](#uc11--manage-product-availability)
-  - [UC12 — Manage Pharmaceutical Listings](#uc12--manage-pharmaceutical-listings)
-  - [UC13 — View Medicine Records](#uc13--view-medicine-records)
-- [🛒 Customer Use Cases](#-customer-use-cases)
-  - [UC14 — Create Personal Account](#uc14--create-personal-account)
-  - [UC15 — Login / Authenticate (Customer)](#uc15--login--authenticate-customer)
-  - [UC16 — Manage Personal Account](#uc16--manage-personal-account)
-  - [UC17 — Update Account Information](#uc17--update-account-information)
-  - [UC18 — Browse Available Medicines](#uc18--browse-available-medicines)
-  - [UC19 — Filter by Category](#uc19--filter-by-category)
-  - [UC20 — Search for Pharmaceutical Products](#uc20--search-for-pharmaceutical-products)
-  - [UC21 — View Search Results](#uc21--view-search-results)
-  - [UC22 — View Medicine Details](#uc22--view-medicine-details)
-
----
-
 ## 👤 Administrator Use Cases
 
 ### UC01 — Manage User Accounts
@@ -46,7 +15,7 @@
 | **Preconditions** | Administrator is logged in to the SmartPharma system. |
 | **Postconditions** | User account records are updated, created, or removed in the system database. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -57,7 +26,7 @@
 | 5 | System validates the data and saves changes. |
 | 6 | System confirms the action with a success message. |
 
-#### ⚠️ Alternative Sequence
+####  Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -65,7 +34,7 @@
 | 2 | System displays a warning and prevents deletion. |
 | 3 | Administrator resolves dependencies or cancels the action. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Changes must be saved within **2 seconds**.
 - All actions must be logged in the **audit trail** for security compliance.
@@ -82,7 +51,7 @@
 | **Preconditions** | Administrator is logged in; target user account exists in the system. |
 | **Postconditions** | User role is updated and new access permissions are enforced across the platform. |
 
-#### ✅ Main Sequence
+####  Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -93,7 +62,7 @@
 | 5 | System applies the updated role and adjusts permissions immediately. |
 | 6 | System notifies the affected user of the role change. |
 
-#### ⚠️ Alternative Sequence
+####  Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -101,7 +70,7 @@
 | 2 | System displays an error preventing the action. |
 | 3 | Administrator assigns a new Administrator before revoking the existing one. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Role changes must take effect **immediately** upon saving.
 - Role assignment must follow **least-privilege** security principles.
@@ -118,7 +87,7 @@
 | **Preconditions** | Administrator is logged in; one or more pharmacist account requests or records exist. |
 | **Postconditions** | Pharmacist account status is updated; access to the platform is granted or revoked accordingly. |
 
-#### ✅ Main Sequence
+####  Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -129,7 +98,7 @@
 | 5 | Administrator approves, suspends, or removes the account. |
 | 6 | System updates account status and notifies the pharmacist. |
 
-#### ⚠️ Alternative Sequence
+####  Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -137,7 +106,7 @@
 | 2 | Administrator flags the account as pending and requests additional documents. |
 | 3 | Pharmacist resubmits credentials for further review. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Pharmacist credential data must be **stored securely and encrypted at rest**.
 - Status changes must be logged with **timestamp and administrator ID**.
@@ -154,7 +123,7 @@
 | **Preconditions** | Administrator is logged in; system activity logs are available. |
 | **Postconditions** | Activity report is displayed; no system state is modified. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -165,7 +134,7 @@
 | 5 | Administrator reviews the activity data. |
 | 6 | Administrator optionally exports the report. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -173,7 +142,7 @@
 | 2 | System displays an empty state message. |
 | 3 | Administrator adjusts filter criteria and retries. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Activity logs must be retained for a minimum of **90 days**.
 - Dashboard must load within **3 seconds** for datasets up to 100,000 records.
@@ -190,7 +159,7 @@
 | **Preconditions** | Administrator is logged in; at least one medicine listing exists in the system. |
 | **Postconditions** | Medicine listing status is updated or the listing is removed from the public catalog. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -201,7 +170,7 @@
 | 5 | Administrator approves, flags for review, or removes the listing. |
 | 6 | System updates listing status and notifies the responsible pharmacist. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -209,7 +178,7 @@
 | 2 | System temporarily hides the listing from customers. |
 | 3 | Pharmacist is notified and must update the listing before resubmission. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Listing status changes must be reflected on the customer-facing catalog within **60 seconds**.
 - All moderation actions must be **auditable**.
@@ -226,7 +195,7 @@
 | **Preconditions** | Administrator is logged in with full system privileges. |
 | **Postconditions** | Access control rules are updated and enforced across all user sessions on the platform. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -237,7 +206,7 @@
 | 5 | Administrator saves the updated access policy. |
 | 6 | System applies new permissions platform-wide immediately. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -245,7 +214,7 @@
 | 2 | System highlights the conflict and blocks saving. |
 | 3 | Administrator revises the configuration to resolve the conflict. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Permission changes must propagate to all active sessions within **5 seconds**.
 - Configuration changes must require **two-factor authentication** confirmation.
@@ -262,7 +231,7 @@
 | **Preconditions** | Administrator is logged in with full data management privileges. |
 | **Postconditions** | System data is updated and all linked modules reflect the changes. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -273,7 +242,7 @@
 | 5 | System validates the changes. |
 | 6 | System saves changes and confirms success. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -281,14 +250,14 @@
 | 2 | System prevents deletion and displays linked dependencies. |
 | 3 | Administrator resolves dependencies before retrying. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - System data changes must be **backed up automatically** before modification.
 - All changes must be **reversible within a 24-hour window**.
 
 ---
 
-## 💊 Pharmacist Use Cases
+## Pharmacist Use Cases
 
 ### UC08 — Login / Authenticate (Pharmacist)
 
@@ -300,7 +269,7 @@
 | **Preconditions** | Pharmacist holds an approved and active account on SmartPharma. |
 | **Postconditions** | Pharmacist is authenticated and an active session is established; Pharmacist dashboard is accessible. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -311,7 +280,7 @@
 | 5 | System creates an authenticated session. |
 | 6 | Pharmacist is redirected to the Pharmacist dashboard. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -319,7 +288,7 @@
 | 2 | System displays an error message without revealing which field is wrong. |
 | 3 | After 5 failed attempts, system temporarily locks the account and notifies the administrator. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Authentication must complete within **2 seconds**.
 - Sessions must expire after **30 minutes** of inactivity.
@@ -337,7 +306,7 @@
 | **Preconditions** | Pharmacist is logged in; medicine does not already exist in the catalog. |
 | **Postconditions** | A new medicine entry is created in the catalog and visible to customers browsing the platform. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -348,7 +317,7 @@
 | 5 | System validates all required fields. |
 | 6 | System saves the listing and makes it visible in the customer catalog. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -356,7 +325,7 @@
 | 2 | System highlights the missing fields and displays validation errors. |
 | 3 | Pharmacist corrects the errors and resubmits. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - New listings must appear in the customer-facing catalog within **60 seconds** of saving.
 - The form must support **image uploads up to 5 MB**.
@@ -373,7 +342,7 @@
 | **Preconditions** | Pharmacist is logged in; the target medicine record exists and belongs to this pharmacist. |
 | **Postconditions** | Medicine record is updated with the new information and the catalog reflects the latest details. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -384,7 +353,7 @@
 | 5 | System validates the updated data. |
 | 6 | System saves the changes and updates the listing in the catalog. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -392,7 +361,7 @@
 | 2 | System displays a notice that the listing is under moderation. |
 | 3 | Pharmacist contacts the Administrator to resolve the lock. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - **Edit history** must be maintained so previous versions can be reviewed.
 - Changes must be reflected in the live catalog within **60 seconds**.
@@ -409,7 +378,7 @@
 | **Preconditions** | Pharmacist is logged in; the target medicine record exists. |
 | **Postconditions** | Medicine availability status is updated and accurately reflected to customers on the platform. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -420,7 +389,7 @@
 | 5 | System saves the updated status. |
 | 6 | Customer-facing listing is updated to reflect the new availability. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -428,7 +397,7 @@
 | 2 | System prompts for confirmation since this action hides the listing from customers. |
 | 3 | Pharmacist confirms and system archives the listing. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Availability changes must be reflected on the customer catalog within **30 seconds**.
 - Out-of-stock items must be **visually differentiated** but remain searchable.
@@ -445,7 +414,7 @@
 | **Preconditions** | Pharmacist is logged in; at least one medicine listing exists under their account. |
 | **Postconditions** | All listings under the pharmacist's account are organised, accurate, and up to date in the catalog. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -456,7 +425,7 @@
 | 5 | Pharmacist performs an action: edit, update availability, or archive. |
 | 6 | System saves changes and updates the catalog. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -464,7 +433,7 @@
 | 2 | System returns no results. |
 | 3 | Pharmacist navigates to Add Medicine to create the missing listing. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Interface must support **pagination** for accounts with more than 100 medicines.
 - Search and filter operations must return results within **1 second**.
@@ -481,7 +450,7 @@
 | **Preconditions** | Pharmacist is logged in; medicine records exist under their account. |
 | **Postconditions** | Medicine records are displayed to the Pharmacist; no data is modified. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -492,7 +461,7 @@
 | 5 | Pharmacist selects a record to view its full details. |
 | 6 | System displays the medicine detail page. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -500,14 +469,14 @@
 | 2 | System displays an empty results message. |
 | 3 | Pharmacist adjusts the search term or clears filters to browse the full list. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Record list must load within **2 seconds**.
 - Search must be **case-insensitive** and support **partial name matching**.
 
 ---
 
-## 🛒 Customer Use Cases
+## Customer Use Cases
 
 ### UC14 — Create Personal Account
 
@@ -519,7 +488,7 @@
 | **Preconditions** | The user does not already have a registered account on SmartPharma. |
 | **Postconditions** | A new Customer account is created and active; user can immediately log in and browse the platform. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -530,7 +499,7 @@
 | 5 | System creates the account and assigns the Customer role. |
 | 6 | System sends a confirmation email and redirects user to the dashboard. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -538,7 +507,7 @@
 | 2 | System displays an error indicating the email is in use. |
 | 3 | User is offered the option to log in or reset their password instead. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Registration must complete within **3 seconds**.
 - Passwords must meet **minimum strength requirements**.
@@ -556,7 +525,7 @@
 | **Preconditions** | Customer has a registered and active account on SmartPharma. |
 | **Postconditions** | Customer is authenticated and a session is started; the personal dashboard is accessible. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -567,7 +536,7 @@
 | 5 | System creates an authenticated session. |
 | 6 | Customer is redirected to their personal dashboard. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -575,7 +544,7 @@
 | 2 | System displays a generic error without specifying which field is wrong. |
 | 3 | After 5 failed attempts, the account is temporarily locked and the customer is advised to reset their password. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Authentication must complete within **2 seconds**.
 - Sessions must expire after **60 minutes** of inactivity.
@@ -593,7 +562,7 @@
 | **Preconditions** | Customer is logged in to their account. |
 | **Postconditions** | Customer profile information is updated and saved in the system. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -604,7 +573,7 @@
 | 5 | System validates and saves the changes. |
 | 6 | System confirms the update with a success notification. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -612,7 +581,7 @@
 | 2 | System rejects the change and notifies the customer. |
 | 3 | Customer enters a different email address. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Profile updates must be saved **immediately** and reflected across all sessions.
 - Account data must be **encrypted in transit and at rest**.
@@ -629,7 +598,7 @@
 | **Preconditions** | Customer is logged in; customer accesses Account Settings. |
 | **Postconditions** | Account details are saved successfully and the updated information is active immediately. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -640,7 +609,7 @@
 | 5 | System saves the updated information. |
 | 6 | System confirms the change and, if email was changed, sends a verification email. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -648,7 +617,7 @@
 | 2 | System rejects the request and displays an error. |
 | 3 | Customer is offered the option to reset their password via email. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Password changes must **invalidate all other active sessions** for security.
 - Email change must trigger a **re-verification flow**.
@@ -665,7 +634,7 @@
 | **Preconditions** | At least one medicine listing is available and active in the catalog. |
 | **Postconditions** | Medicine catalog is displayed to the customer; no system state is changed. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -676,7 +645,7 @@
 | 5 | Customer returns to the catalog to continue browsing. |
 | 6 | Customer optionally applies filters (UC19 is triggered). |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -684,7 +653,7 @@
 | 2 | System displays an empty state message. |
 | 3 | Customer is prompted to check back later or contact a pharmacist. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Catalog page must load within **2 seconds**.
 - Listings must be **paginated at 20 items** per page.
@@ -702,7 +671,7 @@
 | **Preconditions** | Customer is browsing the medicine catalog; filter options are available. |
 | **Postconditions** | A filtered subset of the medicine catalog is displayed to the customer. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -713,7 +682,7 @@
 | 5 | Customer selects a medicine or adjusts the filter further. |
 | 6 | Customer clears filters to return to the full catalog. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -721,7 +690,7 @@
 | 2 | System displays an empty results state with a suggestion to broaden the filter. |
 | 3 | Customer clears or changes the filter criteria. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Filter operations must return results within **1 second**.
 - Multiple filters must be **combinable** without performance degradation.
@@ -738,7 +707,7 @@
 | **Preconditions** | Customer is on the SmartPharma platform; search functionality is available. |
 | **Postconditions** | Matching medicines are listed for the customer; no system state is changed. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -749,7 +718,7 @@
 | 5 | Customer selects a medicine to view its details. |
 | 6 | Customer refines the search term if needed. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -757,7 +726,7 @@
 | 2 | System displays a no-results message with suggested alternatives or related terms. |
 | 3 | Customer adjusts the search term and retries. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Search results must be returned within **1 second**.
 - Search must support **partial name matching** and be **case-insensitive**.
@@ -775,7 +744,7 @@
 | **Preconditions** | Customer has submitted a search term; the system has processed the query. |
 | **Postconditions** | Search results are displayed; customer can select any item to proceed to the detail view. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -786,7 +755,7 @@
 | 5 | System navigates to the medicine detail page (UC22). |
 | 6 | Customer returns to results to continue reviewing. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -794,7 +763,7 @@
 | 2 | System paginates results and prompts the customer to refine their search. |
 | 3 | Customer uses filters (UC19) to narrow down the results. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Results must be **sorted by relevance** by default.
 - Pagination must be applied at **20 results per page**.
@@ -812,7 +781,7 @@
 | **Preconditions** | Customer has selected a medicine from the catalog or search results; the medicine listing is active. |
 | **Postconditions** | Full medicine detail is displayed to the customer; no system state is changed. |
 
-#### ✅ Main Sequence
+#### Main Sequence
 
 | Step | Description |
 |------|-------------|
@@ -823,7 +792,7 @@
 | 5 | Customer navigates back to the catalog or search results. |
 | 6 | Customer optionally contacts the pharmacist for further queries. |
 
-#### ⚠️ Alternative Sequence
+#### Alternative Sequence
 
 | Step | Description |
 |------|-------------|
@@ -831,7 +800,7 @@
 | 2 | System displays a not-found or unavailable message. |
 | 3 | Customer is redirected back to the catalog. |
 
-#### 🔧 Non-Functional Requirements
+#### Non-Functional Requirements
 
 - Medicine detail page must load within **2 seconds**.
 - All pharmaceutical information displayed must reflect the **latest version** saved by the Pharmacist.
