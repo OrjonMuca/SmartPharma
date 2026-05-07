@@ -32,7 +32,7 @@ const RX_NAV = [
   { id: "prescriptions", label: "Prescriptions", icon: "💊", badge: true },
   { id: "prescriptions", label: "Dispense Queue",icon: "📋" },
   { id: "prescriptions", label: "Stock Check",   icon: "📦" },
-  { id: "prescriptions", label: "Patients",      icon: "👤" },
+  { id: "prescriptions", label: "Patients",      icon: "" },
   { id: "prescriptions", label: "Consult Chat",  icon: "💬" },
 ];
 
