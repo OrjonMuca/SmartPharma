@@ -8,7 +8,7 @@ export default function DashboardPage({ setPage }) {
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
         <div>
-          <h1 style={{ fontSize: 22, fontWeight: 700, color: "#0f172a" }}>Good morning, Alex 👋</h1>
+          <h1 style={{ fontSize: 22, fontWeight: 700, color: "#0f172a" }}>Good morning 👋</h1>
           <p style={{ color: "#64748b", fontSize: 14, marginTop: 2 }}>Here's what's happening across your network today.</p>
         </div>
         <div style={{ display: "flex", gap: 10 }}>
@@ -24,7 +24,7 @@ export default function DashboardPage({ setPage }) {
           { icon: "📦", value: "148",   label: "Orders today",    badge: "↑ 12%",  bColor: "#dcfce7", bText: "#166534" },
           { icon: "💰", value: "9,240", label: "Revenue (RON)",   badge: "↑ 8%",   bColor: "#dcfce7", bText: "#166534" },
           { icon: "⚠️", value: "7",     label: "Low stock items", badge: "Urgent", bColor: "#fef3c7", bText: "#92400e" },
-          { icon: "👥", value: "1,382", label: "Active patients", badge: "+23",    bColor: "#dbeafe", bText: "#1e40af" },
+          { icon: "", value: "1,382", label: "Active patients", badge: "+23",    bColor: "#dbeafe", bText: "#1e40af" },
         ].map((k, i) => (
           <div key={i} className="card" style={{ padding: "20px 18px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
