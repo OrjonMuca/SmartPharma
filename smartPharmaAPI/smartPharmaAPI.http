@@ -1,0 +1,6 @@
+@smartPharmaAPI_HostAddress = http://localhost:5239
+
+GET {{smartPharmaAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
